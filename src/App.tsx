@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ScenarioProvider, useScenario } from "./mocks/context";
+import { FeatureFlagProvider } from "./featureFlags/context";
 import TodoApp from "./components/TodoApp";
 import DevToolsPanel from "./components/DevToolsPanel";
 import "./App.css";
@@ -51,7 +52,9 @@ function AppContent() {
 export default function App() {
   return (
     <ScenarioProvider>
-      <AppContent />
+      <FeatureFlagProvider>
+        <AppContent />
+      </FeatureFlagProvider>
     </ScenarioProvider>
   );
 }
