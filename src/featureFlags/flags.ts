@@ -1,9 +1,6 @@
-export interface FeatureFlag {
-  key: string;
-  label: string;
-  description: string;
-  defaultValue: boolean;
-}
+import type { FeatureFlag } from "react-mock-devtools";
+
+export type { FeatureFlag };
 
 export const FEATURE_FLAGS: FeatureFlag[] = [
   {
@@ -31,20 +28,3 @@ export const FEATURE_FLAGS: FeatureFlag[] = [
     defaultValue: false,
   },
 ];
-
-const STORAGE_KEY = "feature-flags";
-
-export type FlagValues = Record<string, boolean>;
-
-export function loadFlags(): FlagValues {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    return saved ? JSON.parse(saved) : {};
-  } catch {
-    return {};
-  }
-}
-
-export function saveFlags(flags: FlagValues) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(flags));
-}

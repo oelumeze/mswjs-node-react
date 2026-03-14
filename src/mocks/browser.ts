@@ -1,5 +1,3 @@
-import { setupWorker } from "msw/browser";
-import { createHandlers } from "./handlers/index";
-import { loadScenario } from "./scenarios";
-
-export const worker = setupWorker(...createHandlers(loadScenario()));
+// The MSW worker is now created by setupDevTools() in src/devtools.ts.
+// This file is kept only to avoid breaking any tooling that references it.
+export { worker } from "../devtools.ts";

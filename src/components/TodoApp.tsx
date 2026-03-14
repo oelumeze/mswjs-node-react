@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { useScenario } from "../mocks/context";
-import { useFeatureFlags } from "../featureFlags/context";
+import { useScenario, useFeatureFlags } from "react-mock-devtools";
 import type { TodoItem } from "../mocks/scenarios";
 
 interface TodoAppProps {
